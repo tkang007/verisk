@@ -18,7 +18,7 @@ test:
 	nosetests .
 
 clean:
-	rm -rf build dist
+	rm -rf build dist __pycache__
 
 build: clean
 	python setup.py build
