@@ -2,17 +2,20 @@ from distutils.core import setup
 from distutils.command.install_scripts import install_scripts
 import os
 
+exec(open('version.py').read())
+version = __version__
+
 class verisk_install_scripts(install_scripts):
     def run(self):
         install_scripts.run(self)
         os.system('verisk -m') # generate the initial verisk ID
 
 setup(name="verisk",
-      version="0.0.1",
+      version=version,
       description="Simple persistent unique IDs.",
       author="Taewon Kang",
       author_email="tkang007@gmail.com",
-      url="https://github.com/tkang007/verisk",
+      url="https://github.com/tkang007/verisk/",
       license='bsd',
       py_modules=['verisk'],
       scripts=['verisk'],
