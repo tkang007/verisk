@@ -9,10 +9,10 @@ install-tools:
 	conda install --yes --quiet  nose flake8 autopep8 twine
 
 lint:
-	flake8 .
+	flake8 --max-line-length 120 .
 
 format:
-	autopep8 .
+	autopep8 --in-place --max-line-length 120 *.py 
 
 test:
 	nosetests .

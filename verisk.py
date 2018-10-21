@@ -4,6 +4,7 @@ import uuid
 
 VERISK_FILE = '/etc/verisk'
 
+
 def verisk(VERISK_FILE=VERISK_FILE):
     """
     Get the verisk ID from the specified file. If the file is unreadable for
@@ -19,11 +20,13 @@ def verisk(VERISK_FILE=VERISK_FILE):
                 res = line.strip()
             else:
                 # this is not a verisk file!
-                raise ValueError("The specified file doesn't appear to contain a verisk.")
+                raise ValueError(
+                    "The specified file doesn't appear to contain a verisk.")
         f.close()
     except IOError as e:
-        pass # if we can't read the file for some reason, we assume there is no file
+        pass  # if we can't read the file for some reason, we assume there is no file
     return res
+
 
 def _write_new_id(VERISK_FILE=VERISK_FILE):
     """
@@ -34,6 +37,7 @@ def _write_new_id(VERISK_FILE=VERISK_FILE):
     f.write(verisk_id + "\n")
     f.close()
     return verisk_id
+
 
 def make_verisk(VERISK_FILE=VERISK_FILE):
     """
